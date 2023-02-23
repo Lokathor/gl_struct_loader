@@ -1,6 +1,7 @@
 #![no_std]
 #![warn(missing_docs)]
 #![allow(nonstandard_style)]
+#![cfg_attr(docs_rs, feature(doc_cfg))]
 
 //! Crate with a struct that can load GL function pointers, and that lets you
 //! call them.
