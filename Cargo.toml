@@ -1,0 +1,22 @@
+[package]
+name = "gl_struct_loader"
+description = "Struct for loading/calling GL functions"
+repository = "https://github.com/Lokathor/gl_struct_loader"
+version = "0.1.0"
+edition = "2021"
+license = "Zlib OR Apache-2.0 OR MIT"
+
+[dependencies]
+gl_types = "0.1.0"
+
+[features]
+default = ["std"]
+std = ["alloc"]
+alloc = []
+track_caller = []
+
+[package.metadata.docs.rs]
+# This makes docs.rs build with all features enabled and
+# also it will indicate what fn needs what cpu feature.
+rustdoc-args = ["--cfg","docs_rs"]
+all-features = true
