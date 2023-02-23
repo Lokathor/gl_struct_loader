@@ -5,6 +5,13 @@
 //! Crate with a struct that can load GL function pointers, and that lets you
 //! call them.
 //!
+//! This Can Support:
+//! * All OpenGL functions in the "Core" profile up to 4.6 (`api="gl"`)
+//! * All OpenGL ES functions from 2.0 up to 3.2 (`api="gles2"`)
+//! * The `GL_KHR_debug` extension (which is a core part of both OpenGL 4.3 and
+//!   OpenGL ES 3.2, but has to be used as just an extension in earlier
+//!   versions).
+//!
 //! ## Typical Initialization
 //!
 //! ```rust,no_run
