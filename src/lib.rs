@@ -9,8 +9,8 @@
 //!
 //! ```rust,no_run
 //! # use gl_struct_loader::*;
-//! let user_loader = |name| unimplemented!("call some OS fn here");
 //! let gl = {
+//!   let user_loader = |name| unimplemented!("call some OS fn here");
 //!   let mut gl = GlFns::new_boxed();
 //!   unsafe { gl.load(user_loader) };
 //!   gl
@@ -18,16 +18,17 @@
 //! ```
 //!
 //! The [new_boxed](GlFns::new_boxed) function makes the struct directly on the
-//! heap, and requires the crate's `alloc` feature (which is on by default). If
-//! you somehow can use GL but can't use the `alloc` crate you can use the
-//! [`BLANK_GL_FNS`] constant to make an empty value of the struct.
+//! heap (it's kinda large to keep it on the stack), and requires the crate's
+//! `alloc` feature (which is on by default). If you somehow can use GL but
+//! can't use the `alloc` crate you can use the [`BLANK_GL_FNS`] constant to
+//! make an empty value of the struct.
 //!
 //! ## Global GL
 //!
 //! If you'd like to call the GL API from anywhere (like in a C program) it's
 //! still possible using this crate, though I'll admit it's a hair clunky.
 //!
-//! When the crate's `std` feature is enabled there is a static
+//! When the crate's `std` feature (on by default) is enabled there is a static
 //! [RwLock](std::sync::RwLock) available called [`GL`]:
 //!
 //! ```rust,no_run
